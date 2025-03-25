@@ -26,9 +26,7 @@ jobs:
         
       - name: Build with Gradle
         run: ./gradlew build
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: build/libs/
+      
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v4.2.1
+                
