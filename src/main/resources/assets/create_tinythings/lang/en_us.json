@@ -1,5 +1,5 @@
 {
-  "itemGroup.create_tinythings": "Example Mod Tab",
-  "block.create_tinythings.example_block": "Example Block",
-  "item.create_tinythings.example_item": "Example Item"
+  "itemGroup.create_tinythings": "Tiny Things",
+  "block.create_tinythings.example_block": "Testing BLOCK",
+  "item.create_tinythings.example_item": "TESTING Item"
 }

@@ -49,11 +49,18 @@ public class CreateTinyThings
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "create_tinythings" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // Creates a new Block with the id "create_tinythings:example_block", combining the namespace and path
+    // Registering the block and its item
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-    // Creates a new BlockItem with the id "create_tinythings:example_block", combining the namespace and path
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
+    // Register block and item textures (using a common method to register textures)
+    public static void registerBlockAndItemTextures() {
+        // Registering block texture
+        BlockModelProvider.addBlock("example_block", new Identifier("create_tinythings", "block/example_block"));
+
+        // Registering item texture
+        ItemModelProvider.addItem("example_block", new Identifier("create_tinythings", "item/example_item"));
+    }
     // Creates a new food item with the id "create_tinythings:example_id", nutrition 1 and saturation 2
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
