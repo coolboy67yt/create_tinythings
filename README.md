@@ -10,3 +10,5 @@ A lil guy who follows you around and carries items for you :]
 ## Our team
 TheFunRayy,
 turtledevv
+
+### Discord: [discord.gg/ajE9v3jXhe](https://discord.gg/ajE9v3jXhe)
