@@ -27,7 +27,7 @@ public class ItemsSetup {
 
     // EXAMPLE BLOCK YAY
     public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block",
-        () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE))
+        () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT))
     );
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK = ITEMS.registerSimpleBlockItem("example_block", ModBlocks.EXAMPLE_BLOCK);
 
