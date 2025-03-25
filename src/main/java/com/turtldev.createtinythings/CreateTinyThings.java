@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.util.Identifier;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -49,30 +50,49 @@ public class CreateTinyThings
     // Create a Deferred Register to hold CreativeModeTabs which will all be registered under the "create_tinythings" namespace
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    // Registering the block and its item
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+// Registering the block and its item
+public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
 
-    // Register block and item textures (using a common method to register textures)
-    public static void registerBlockAndItemTextures() {
-        // Registering block texture
-        BlockModelProvider.addBlock("example_block", new Identifier("create_tinythings", "block/example_block"));
+// Creates a new food item with the id "create_tinythings:example_item", nutrition 1 and saturation 2
+public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
+        .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
-        // Registering item texture
-        ItemModelProvider.addItem("example_block", new Identifier("create_tinythings", "item/example_item"));
-    }
-    // Creates a new food item with the id "create_tinythings:example_id", nutrition 1 and saturation 2
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+// Creates a creative tab with the id "create_tinythings:example_tab" for the example item, that is placed after the combat tab
+public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
+        .title(Component.translatable("itemGroup.create_tinythings")) //The language key for the title of your CreativeModeTab
+        .withTabsBefore(CreativeModeTabs.COMBAT)
+        .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
+        .displayItems((parameters, output) -> {
+            output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
+        }).build());
 
-    // Creates a creative tab with the id "create_tinythings:example_tab" for the example item, that is placed after the combat tab
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
-            .title(Component.translatable("itemGroup.create_tinythings")) //The language key for the title of your CreativeModeTab
-            .withTabsBefore(CreativeModeTabs.COMBAT)
-            .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> {
-                output.accept(EXAMPLE_ITEM.get()); // Add the example item to the tab. For your own tabs, this method is preferred over the event
-            }).build());
+// Register block and item textures using JSON models (no need for manual code-based texture registration)
+public static void registerBlockAndItemTextures() {
+    // The block and item textures should be automatically picked up from the resources folder
+    // Make sure you have these JSON files in the correct locations:
+    // - src/main/resources/assets/create_tinythings/models/block/example_block.json
+    // - src/main/resources/assets/create_tinythings/models/item/example_item.json
+
+    // Block JSON model example: src/main/resources/assets/create_tinythings/models/block/example_block.json
+    // {
+    //   "parent": "block/cube_all",
+    //   "textures": {
+    //     "all": "create_tinythings:block/example_block"
+    //   }
+    // }
+
+    // Item JSON model example: src/main/resources/assets/create_tinythings/models/item/example_item.json
+    // {
+    //   "parent": "item/generated",
+    //   "textures": {
+    //     "layer0": "create_tinythings:item/example_item"
+    //   }
+    // }
+
+    // The models will be picked up automatically by Minecraft, you don't need to register them in Java.
+}
+
 
     // The constructor for the mod class is the first code that is run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
