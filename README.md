@@ -15,3 +15,14 @@ UUNJ
 ### Discord: [discord.gg/ajE9v3jXhe](https://discord.gg/ajE9v3jXhe)
 
 Want to contribute to the project? Create a pull request or join our discord!
+
+## Links
+
+**Curseforge**
+🔨 [`link coming soon`](https://example.com)
+
+**Modrinth**
+🟢 [`link coming soon`](https://example.com)
+
+**Website**
+:globe_with_meridians: [`turtldev.online/createtinythings`](https://turtldev.online/createtinythings/)
