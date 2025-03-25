@@ -25,4 +25,4 @@ Want to contribute to the project? Create a pull request or join our discord!
 🟢 [`link coming soon`](https://example.com)
 
 **Website**
-:globe_with_meridians: [`turtldev.online/createtinythings`](https://turtldev.online/createtinythings/)
+:globe_with_meridians: [`creatett.vercel.app`](https://creatett.vercel.app)
