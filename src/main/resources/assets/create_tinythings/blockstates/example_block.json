@@ -1,6 +1,6 @@
 {
     "variants": {
-      "": { "model": "create_tiny_things:block/example_block" }
+      "": { "model": "create_tinythings:block/example_block" }
     }
   }
   
