@@ -9,6 +9,9 @@ A lil guy who follows you around and carries items for you :]
 
 ## Our team
 TheFunRayy,
-turtledevv
+turtledevv,
+UUNJ
 
 ### Discord: [discord.gg/ajE9v3jXhe](https://discord.gg/ajE9v3jXhe)
+
+Want to contribute to the project? Create a pull request or join our discord!
