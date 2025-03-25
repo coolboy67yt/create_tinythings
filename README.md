@@ -2,9 +2,9 @@
 Addon for Create mod, with Kinetic Batteries, mechanical pets, and new tools.
 
 ## Features
-- Kinetic Batteries
+- Kinetic Batteries<br>
 Store rotational energy in a portable battery!
-- Mechanical Pets
+- Mechanical Pets<br>
 A lil guy who follows you around and carries items for you :]
 
 ## Our team
