@@ -1,6 +1,23 @@
 name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - .gitattributes
+      - '**/.git/*'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - .gitignore
+      - .gitattributes
+      - '**/*.md'
+      - '**/.git/*'
 
 jobs:
   build:
