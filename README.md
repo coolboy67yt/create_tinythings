@@ -5,5 +5,5 @@ Addon for Create mod, with Kinetic Batteries, mechanical pets, and new tools.
 fill this out later lmao
 
 ## Our team
-TheFunRayy
+TheFunRayy,
 turtledevv
