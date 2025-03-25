@@ -1,5 +1,5 @@
 {
-    "parent": "block/cube_all",
+    "parent": "block/cube",
     "textures": {
       "all": "create_tinythings:block/example_block"
     }
