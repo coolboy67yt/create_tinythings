@@ -43,12 +43,20 @@ public class ItemsSetup {
 
     public ItemStack createKineticBattery() {
         ItemStack stack = new ItemStack(KINETIC_BATTERY.get());
+        
+        // Create a CompoundTag
         CompoundTag nbt = stack.getOrCreateTag();
-        nbt.putInt("Charge", 100);  // Default Charge
-        nbt.putInt("Level", 4);     // Default Level
-        stack.setTag(nbt);          // Apply NBT to the stack
+        
+        // Put data into the CompoundTag
+        nbt.putInt("Charge", 100);  // Default value for Charge
+        nbt.putInt("Level", 4);     // Default value for Level
+        
+        // Apply NBT to the ItemStack
+        stack.setTag(nbt);
+        
         return stack;
     }
+
     
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
