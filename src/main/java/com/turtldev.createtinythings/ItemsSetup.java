@@ -38,19 +38,17 @@ public class ItemsSetup {
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
-    public static final DeferredItem<Item> KINETIC_BATTERY = ITEMS.register("kinetic_battery", () -> new Item(new Item.Properties()) {
-        @Override
-        public ItemStack getDefaultInstance() {
-            // Create an ItemStack for the kinetic_battery with custom NBT data
-            ItemStack stack = super.getDefaultInstance();
-            CompoundTag nbt = new CompoundTag();
-            nbt.putInt("Charge", 100);  // Set default Charge to 100
-            nbt.putInt("Level", 4);     // Set default Level to 4
-            stack.setTag(nbt);
-            return stack;
-        }
-    });
+    public static final DeferredItem<Item> KINETIC_BATTERY = ITEMS.register("kinetic_battery", 
+        () -> new Item(new Item.Properties()));
 
+    public ItemStack createKineticBattery() {
+        ItemStack stack = new ItemStack(KINETIC_BATTERY.get());
+        CompoundTag nbt = stack.getOrCreateTag();
+        nbt.putInt("Charge", 100);  // Default Charge
+        nbt.putInt("Level", 4);     // Default Level
+        stack.setTag(nbt);          // Apply NBT to the stack
+        return stack;
+    }
     
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
