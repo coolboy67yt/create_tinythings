@@ -29,11 +29,19 @@ public class ItemsSetup {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
 
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    //--------example block---------
+    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock(
+        "example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+    );
     public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+    //------------------------------
 
-    public static final DeferredBlock<Block> COMPRESSED_CHOCOLATE = BLOCKS.registerSimpleBlock("compressed_chocolate", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    //---- compressed chocolate ----
+    public static final DeferredBlock<Block> COMPRESSED_CHOCOLATE = BLOCKS.registerSimpleBlock(
+        "compressed_chocolate", BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
+    );
     public static final DeferredItem<BlockItem> COMPRESSED_CHOCOLATE_ITEM = ITEMS.registerSimpleBlockItem("compressed_chocolate", COMPRESSED_CHOCOLATE);
+    //------------------------------
 
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
