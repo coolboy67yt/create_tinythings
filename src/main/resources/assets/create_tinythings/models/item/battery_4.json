@@ -1,0 +1,88 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "create_tinythings:item/battery_4"
+	},
+	"elements": [
+		{
+			"from": [0.25, 0.25, 0.25],
+			"to": [3.75, 7.25, 3.75],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1.5, 0.25, 0]},
+			"faces": {
+				"north": {"uv": [2, 0, 4, 4], "texture": "#1"},
+				"east": {"uv": [2, 0, 4, 4], "texture": "#1"},
+				"south": {"uv": [2, 0, 4, 4], "texture": "#1"},
+				"west": {"uv": [2, 0, 4, 4], "texture": "#1"},
+				"up": {"uv": [2, 0, 4, 4], "texture": "#1"},
+				"down": {"uv": [2, 0, 4, 4], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [4, 8, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 4, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 4], "texture": "#1"},
+				"east": {"uv": [0, 0, 2, 4], "texture": "#1"},
+				"south": {"uv": [0, 0, 2, 4], "texture": "#1"},
+				"west": {"uv": [0, 0, 2, 4], "texture": "#1"},
+				"up": {"uv": [0, 4, 2, 6], "texture": "#1"},
+				"down": {"uv": [2, 4, 4, 6], "texture": "#1"}
+			}
+		},
+		{
+			"from": [1, 8, 1],
+			"to": [3, 9, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 8, 0]},
+			"faces": {
+				"north": {"uv": [3, 6, 4, 6.5], "texture": "#1"},
+				"east": {"uv": [3, 6, 4, 6.5], "texture": "#1"},
+				"south": {"uv": [3, 6, 4, 6.5], "texture": "#1"},
+				"west": {"uv": [3, 6, 4, 6.5], "texture": "#1"},
+				"up": {"uv": [0, 6, 1, 7], "texture": "#1"},
+				"down": {"uv": [0, 6, 1, 6.5], "texture": "#1"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [-6, 6.5, 6.75],
+			"scale": [1.13, 1, 1]
+		},
+		"thirdperson_lefthand": {
+			"translation": [-18.25, 2.5, 4]
+		},
+		"firstperson_righthand": {
+			"translation": [11.75, 0, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 1.25, 0]
+		},
+		"ground": {
+			"rotation": [-90, 0, -90],
+			"translation": [4.25, 6.5, 6.25]
+		},
+		"gui": {
+			"rotation": [0, 0, -23],
+			"translation": [10.75, 1.5, 0],
+			"scale": [1.5, 1.5, 1.5]
+		},
+		"head": {
+			"translation": [24.25, 8.5, 23.5],
+			"scale": [4, 4, 4]
+		},
+		"fixed": {
+			"translation": [8.25, 5, 7.75],
+			"scale": [1.45, 1.4, 1.38]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [1, 8, 0],
+			"color": 0,
+			"children": [0, 1, 2]
+		}
+	]
+}
