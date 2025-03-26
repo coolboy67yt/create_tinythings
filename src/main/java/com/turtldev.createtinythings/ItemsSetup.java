@@ -32,16 +32,25 @@ public class ItemsSetup {
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
+    // New Compressed Chocolate Block
+    public static final DeferredBlock<Block> COMPRESSED_CHOCOLATE = BLOCKS.registerSimpleBlock("compressed_chocolate", BlockBehaviour.Properties.of().mapColor(MapColor.BROWN));
+    public static final DeferredItem<BlockItem> COMPRESSED_CHOCOLATE_ITEM = ITEMS.registerSimpleBlockItem("compressed_chocolate", COMPRESSED_CHOCOLATE);
+
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.create_tinythings"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
             .icon(() -> EXAMPLE_ITEM.get().getDefaultInstance())
-            .displayItems((parameters, output) -> output.accept(EXAMPLE_ITEM.get()))
+            .displayItems((parameters, output) -> {
+                output.accept(EXAMPLE_ITEM.get());
+                output.accept(COMPRESSED_CHOCOLATE_ITEM.get()); // Add Compressed Chocolate item
+            })
             .build());
 
     public static void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(EXAMPLE_BLOCK_ITEM);
+            event.accept(COMPRESSED_CHOCOLATE_ITEM); // Add Compressed Chocolate item to the building blocks tab
+        }
     }
 
     public static void register(final IEventBus modEventBus) {
@@ -49,5 +58,17 @@ public class ItemsSetup {
         ITEMS.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
         modEventBus.addListener(ItemsSetup::addCreative);
+        registerRecipes();
+    }
+
+    // Register Crafting Recipe for Compressed Chocolate
+    public static void registerRecipes() {
+        ShapedRecipeBuilder.shaped(COMPRESSED_CHOCOLATE.get())
+            .pattern("###")
+            .pattern("###")
+            .pattern("###")
+            .define('#', Registry.ITEM.get(new ResourceLocation("create", "bar_of_chocolate")))
+            .unlockedBy("has_chocolate_bar", InventoryChangeTrigger.TriggerInstance.hasItems(Registry.ITEM.get(new ResourceLocation("create", "bar_of_chocolate"))))
+            .save(RecipeBuilder.simple(modid("compressed_chocolate")));
     }
 }
