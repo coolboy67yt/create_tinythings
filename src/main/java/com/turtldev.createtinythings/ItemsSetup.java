@@ -17,6 +17,11 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.bus.api.IEventBus;
+import net.minecraft.world.item.crafting.ShapedRecipeBuilder;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
+
 
 public class ItemsSetup {
 
@@ -33,7 +38,7 @@ public class ItemsSetup {
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
     // New Compressed Chocolate Block
-    public static final DeferredBlock<Block> COMPRESSED_CHOCOLATE = BLOCKS.registerSimpleBlock("compressed_chocolate", BlockBehaviour.Properties.of().mapColor(MapColor.BROWN));
+    public static final DeferredBlock<Block> COMPRESSED_CHOCOLATE = BLOCKS.registerSimpleBlock("compressed_chocolate", BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN));
     public static final DeferredItem<BlockItem> COMPRESSED_CHOCOLATE_ITEM = ITEMS.registerSimpleBlockItem("compressed_chocolate", COMPRESSED_CHOCOLATE);
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
