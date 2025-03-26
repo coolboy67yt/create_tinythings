@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 
 public class ItemsSetup {
