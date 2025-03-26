@@ -1,6 +1,20 @@
 {
     "variants": {
-      "": { "model": "create_tinythings:item/battery_4" }
+      "level=0": {
+        "model": "create_tinythings:item/battery_0"
+      },
+      "level=1": {
+        "model": "create_tinythings:item/battery_1"
+      },
+      "level=2": {
+        "model": "create_tinythings:item/battery_2"
+      },
+      "level=3": {
+        "model": "create_tinythings:item/battery_3"
+      },
+      "level=4": {
+        "model": "create_tinythings:item/battery_4"
+      }
     }
-}
+  }
   

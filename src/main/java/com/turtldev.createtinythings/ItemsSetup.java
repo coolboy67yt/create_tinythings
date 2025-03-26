@@ -1,5 +1,7 @@
 package com.turtldev.createtinythings;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
@@ -35,6 +37,21 @@ public class ItemsSetup {
     public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
             .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
 
+    public static final DeferredItem<Item> KINETIC_BATTERY = ITEMS.register("kinetic_battery", () -> new Item(new Item.Properties()) {
+        @Override
+        public ItemStack getDefaultInstance() {
+            // Create an ItemStack for the kinetic_battery with custom NBT data
+            ItemStack stack = super.getDefaultInstance();
+            CompoundTag nbt = new CompoundTag();
+            nbt.putInt("Charge", 100);  // Set default Charge to 100
+            nbt.putInt("Level", 4);     // Set default Level to 4
+            stack.setTag(nbt);
+            return stack;
+        }
+    });
+
+    
+
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.create_tinythings"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
@@ -46,6 +63,7 @@ public class ItemsSetup {
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS)
             event.accept(EXAMPLE_BLOCK_ITEM);
             event.accept(COMPRESSED_CHOCOLATE_ITEM);
+            event.accept(KINETIC_BATTERY);
     }
 
     public static void register(final IEventBus modEventBus) {
